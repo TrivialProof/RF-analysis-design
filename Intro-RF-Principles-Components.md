@@ -10,11 +10,8 @@ There are various ways to incorporate “wireless” functionality into an elect
 
 `Carefully manipulated sinusoidal voltage (or current) signals are the foundation of the modern wireless age.`
 
-A sin wave is typically described with the equation:
+[Appendix 1 - Sine Waves](https://www.google.com "Appendix 1 - The Basic Mathematics of Sine Waves")
 
-\[
-\ y(x,t) = Asin(kx - wt)
-\]
 
 With this in mind, we can ask ourselves the more relevant questions: Why is electromagnetic radiation the preferred method? Why are other types of wireless communication of such secondary importance? Before we answer these questions, let’s make sure we understand what electromagnetic radiation is.
 
