@@ -10,6 +10,12 @@ There are various ways to incorporate “wireless” functionality into an elect
 
 `Carefully manipulated sinusoidal voltage (or current) signals are the foundation of the modern wireless age.`
 
+A sin wave is typically described with the equation:
+
+\[
+\ y(x,t) = Asin(kx - wt)
+\]
+
 With this in mind, we can ask ourselves the more relevant questions: Why is electromagnetic radiation the preferred method? Why are other types of wireless communication of such secondary importance? Before we answer these questions, let’s make sure we understand what electromagnetic radiation is.
 
 ## Fields and Waves
@@ -133,11 +139,3 @@ Digital oscilloscopes offer “FFT” (fast Fourier transform) functionality, an
 + Theoretical spectra often consist of thin vertical arrows that correspond to idealized fixed-frequency sinusoids.
 + Real-world measurement equipment and real-world RF signals are always subject to imperfections that result in a wider frequency-domain waveform.
 + An essential piece of equipment for an RF design lab is the spectrum analyzer. These devices provide frequency-domain plots as well as various signal-analysis capabilities.
-
-
-
-
-
-
-
-
