@@ -136,3 +136,64 @@ Digital oscilloscopes offer “FFT” (fast Fourier transform) functionality, an
 + Theoretical spectra often consist of thin vertical arrows that correspond to idealized fixed-frequency sinusoids.
 + Real-world measurement equipment and real-world RF signals are always subject to imperfections that result in a wider frequency-domain waveform.
 + An essential piece of equipment for an RF design lab is the spectrum analyzer. These devices provide frequency-domain plots as well as various signal-analysis capabilities.
+
+# 3. The Decibel
+
+RF engineering, like all scientific disciplines and subdisciplines, involves quite a bit of specialized terminology. One of the most important words that you will need when working in the world of RF is “dB” (and some variants thereof). If you become deeply entrenched in an RF project, you may find that the word “dB” becomes as familiar to you as your own name.
+
+As you probably know, dB stands for decibel. It’s a logarithmic unit that provides a convenient way of referring to ratios, such as the ratio between the amplitudes of an input signal and an output signal. It is *not* a unit of measurement, SI or otherwise.
+
+![RF11](https://www.allaboutcircuits.com/uploads/articles/RFT_ch1_pg3_1_2.JPG)
+
+In its simplest form, an amplifier’s gain is a ratio of output over input. Like all ratios, this form of gain is unitless. However, there is an actual unit intended to represent gain, and it is called the bel.
+
+As a unit, the bel was actually devised as a convenient way to represent power loss in telephone system wiring rather than gain in amplifiers. The unit’s name is derived from Alexander Graham Bell, the famous Scottish inventor whose work was instrumental in developing telephone systems. Originally, the bel represented the amount of signal power loss due to resistance over a standard length of electrical cable. Now, it is defined in terms of the common (base 10) logarithm of a power ratio (output power divided by input power). Because the bel is a logarithmic unit, it is nonlinear. To give you an idea of how this works, consider the following table of figures, comparing power losses and gains in bels versus simple ratios:
+
+![DB1](https://sub.allaboutcircuits.com/images/13029.png)
+
+### Moving from the Bel to Decibel
+
+It was later decided that the bel was too large of a unit to be used directly, and so it became customary to apply the metric prefix deci (meaning 1/10) to it, making it decibels, or dB. Now, the expression “dB” is so common that many people do not realize it is a combination of “deci-” and “-bel,” or that there even is such a unit as the “bel.” To put this into perspective, here is another table contrasting power gain/loss ratios against decibels:
+
+![DB2](https://sub.allaboutcircuits.com/images/13030.png)
+
+As a logarithmic unit, this mode of power gain expression covers a wide range of ratios with a minimal span in figures. It is reasonable to ask, “why did anyone feel the need to invent a logarithmic unit for electrical signal power loss in a telephone system?” The answer is related to the dynamics of human hearing, the perceptive intensity of which is logarithmic in nature. Human hearing is highly nonlinear: in order to double the perceived intensity of a sound, the actual sound power must be multiplied by a factor of ten. Relating telephone signal power loss in terms of the logarithmic “bel” scale makes perfect sense in this context: a power loss of 1 bel translates to a perceived sound loss of 50 percent, or 1/2. A power gain of 1 bel translates to a doubling in the perceived intensity of the sound.
+
+A great reason for the adoption of the dB as a unit for gain is for simple expression of system gains and losses. Consider a system where two amplifiers were connected in series to amplify a signal. The respective gain for each amplifier is expressed as a ratio, and the overall gain for the system was the product (multiplication) of those two ratios:
+
+`Overall gain = (3)(5) = 15`
+
+If these figures represented power gains, we could directly apply the unit of bels to the task of representing the gain of each amplifier, and of the system altogether:
+
+![DB3](https://sub.allaboutcircuits.com/images/03170.png)
+
+The power gain in bels is additive: 0.477 B + 0.699 B = 1.176 B.
+
+Close inspection of these gain figures in the unit of “bel” yields a discovery: they’re additive. Ratio gain figures are multiplicative for staged amplifiers, but gains expressed in bels add rather than multiply to equal the overall system gain. The first amplifier with its power gain of 0.477 B adds to the second amplifier’s power gain of 0.699 B to make a system with an overall power gain of 1.176 B. Recalculating for decibels rather than bels, we notice the same phenomenon.
+
+![DB4](https://sub.allaboutcircuits.com/images/03171.png)
+
+The gain of amplifier stages in decibels is also additive: 4.77 dB + 6.99 dB = 11.76 dB.
+
+[Appendix 2 - Decibels](https://www.google.com "Appendix 2 - The Basic Mathematics of Decibels")
+
+## Why dB?
+
+It would certainly be possible to design and test RF systems without the use of dB, but in practice dB’s are everywhere. One advantage is that the dB scale allows us to express very large ratios without using very large numbers: a power gain of 1,000,000 is only 60 dB. Also, the total gain or loss of a signal chain is easily computed in the dB domain, because the individual dB figures are simply added (whereas multiplication would be required if we were working with ordinary ratios).
+
+Another advantage is something that we’re familiar with from our experience with filters. RF systems revolve around frequencies and the various ways in which frequencies are generated, controlled, or affected by components and parasitic circuit elements. The dB scale is convenient in a context such as this because frequency response plots are intuitive and visually informative when the frequency axis uses a logarithmic scale and the amplitude axis uses a dB scale.
+
+![DB5](https://www.allaboutcircuits.com/uploads/articles/134053_FIG-2.jpg)
+
+`A Bode plot showing the magnitude response of different band-pass filters.`
+
+## Absolute dBs
+
+We’ve established that dB is a ratio and thus cannot describe the absolute power or amplitude of a signal. However, it would be awkward to be constantly switching back and forth between dB and non-dB values, and perhaps this is why RF engineers developed the dBm unit.
+
+We can avoid the “ratios only” problem by simply creating a new unit that always includes a reference value. In the case of dBm, the reference value is 1 mW. Thus, if we have a 5 mW signal and we want to stay within the realm of dB, we can describe this signal as having a power of 7 dBm:
+
+![DB6](https://www.allaboutcircuits.com/uploads/articles/134053_FIG-2.jpg)
+
+\\[ x = {-b \pm \sqrt{b^2-4ac} \over 2a} \\]
+
